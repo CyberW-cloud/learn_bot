@@ -1,5 +1,6 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
+import settings
 
 logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',
                     level=logging.INFO,
@@ -17,7 +18,7 @@ def talk_to_me(bot, update):
     update.message.reply_text(user_text)
 
 def main():
-    mybot = Updater("945020105:AAG1qEEGx7g3yh-xuD-5Veb825S2kjCjum8")
+    mybot = Updater(settings.API_KEY)
     
     logging.info("Bot started")
 

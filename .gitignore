@@ -1,3 +1,5 @@
 *.txt
+*.log
 desktop.ini
-bot.log
+settings.py
+__pycache__
