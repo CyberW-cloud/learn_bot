@@ -54,14 +54,14 @@ def send_cat_pic(bot, update, user_data):
     cat_list = glob("images/cat*.jp*g")
     cat_pic = choice(cat_list)
     bot.send_photo(chat_id=update.message.chat.id, photo=open(cat_pic, 'rb'), reply_markup=get_keyboard())
-    logging.info("User: %s, Chat ID: %s, Message: %s", update.message.chat.username,
-                update.message.chat.id, update.message.text)
+    logging.info("User: %s, Chat ID: %s, Message: Send cat pic", update.message.chat.username,
+                update.message.chat.id)
 
 def send_cat_pic_rnd(bot, update, user_data):
     url="https://api.thecatapi.com/v1/images/search"
     r= requests.get(url)
-    logging.info("User: %s, Chat ID: %s, Message: %s", update.message.chat.username,
-                update.message.chat.id, update.message.text)
+    logging.info("User: %s, Chat ID: %s, Message: Send rand cat", update.message.chat.username,
+                update.message.chat.id)
     if (r.status_code != 200):
         update.message.reply_text('Sorry, there is a problem retrieving a picture.', reply_markup=get_keyboard())
     else:
@@ -77,14 +77,17 @@ def change_avatar(bot, update, user_data):
     emo = get_user_emo(user_data)
     update.message.reply_text("Готово! {}".format(emo), reply_markup=get_keyboard())
 
-def get_contact(bot, message, user_data):
+def get_contact(bot, update, user_data):
     print(update.message.contact)
     update.message.reply_text("Готово! {}".format(get_user_emo(user_data)), reply_markup=get_keyboard())
+    logging.info("User: %s, Chat ID: %s, Message: Send contacts", update.message.chat.username,
+                update.message.chat.id)
 
-def get_location(bot, message, user_data):
+def get_location(bot, update, user_data):
     print(update.message.location)
     update.message.reply_text("Готово! {}".format(get_user_emo(user_data)), reply_markup=get_keyboard())
-
+    logging.info("User: %s, Chat ID: %s, Message: Send location", update.message.chat.username,
+                update.message.chat.id)
 def main():
     mybot = Updater(settings.API_KEY)
     
