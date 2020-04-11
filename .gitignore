@@ -2,5 +2,6 @@
 *.log
 desktop.ini
 settings.py
-__pycache__
-images
+__pycache__/
+images/
+env/

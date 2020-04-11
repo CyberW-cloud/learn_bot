@@ -88,6 +88,7 @@ def get_location(bot, update, user_data):
     update.message.reply_text("Готово! {}".format(get_user_emo(user_data)), reply_markup=get_keyboard())
     logging.info("User: %s, Chat ID: %s, Message: Send location", update.message.chat.username,
                 update.message.chat.id)
+
 def main():
     mybot = Updater(settings.API_KEY)
     
@@ -105,4 +106,5 @@ def main():
     mybot.start_polling()
     mybot.idle()
 
-main()
+if __name__ == "__main__":
+    main()
