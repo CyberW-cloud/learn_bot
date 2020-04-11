@@ -2,6 +2,7 @@
 *.log
 desktop.ini
 settings.py
+rnd_cat_pic.py
 __pycache__/
 images/
 env/
